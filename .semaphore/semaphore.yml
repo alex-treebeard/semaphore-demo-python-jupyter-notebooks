@@ -37,4 +37,5 @@ blocks:
             - checkout
 
             - pip install -r requirements.txt
+            - pip install nbmake pytest-xdist
             - pytest --nbmake -n=auto ./ipynb
