@@ -26,10 +26,15 @@ global_job_config:
 # commands to execute.
 # See https://docs.semaphoreci.com/article/62-concepts
 blocks:
-  - name: "Run Unit Tests"
+  - name: "Test Notebooks"
     task:
+      prologue:
+        commands:
+          - sudo apt-get update && sudo apt-get install -y python3-dev
       jobs:
-        - name: Notebook Test
+        - name: pip
           commands:
-            - pip install -r requirements.txt
+            - checkout
+
+            - pip download -r requirements.txt
             - pytest --nbmake ipynb -n=auto
