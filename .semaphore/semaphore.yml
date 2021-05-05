@@ -11,8 +11,10 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
+            - cache restore
+            - pip install -r requirements.txt
             - pip install nbmake pytest-xdist
-            - python -m ipykernel install --name mycustomkernel --user
+            - cache store
             - pytest --nbmake -n=auto ./ipynb
       prologue:
         commands:
