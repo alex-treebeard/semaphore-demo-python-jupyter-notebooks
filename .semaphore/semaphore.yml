@@ -12,8 +12,8 @@ blocks:
           commands:
             - checkout
             - pip install nbmake pytest-xdist
+            - python -m ipykernel install --name mycustomkernel --user
             - pytest --nbmake -n=auto ./ipynb
-            - python -m ipykernel install --name mycustomkernel
       prologue:
         commands:
           - sem-version python 3.8
