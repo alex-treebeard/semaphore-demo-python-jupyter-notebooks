@@ -13,3 +13,6 @@ blocks:
             - checkout
             - pip install nbmake pytest-xdist
             - pytest --nbmake -n=auto ./ipynb
+      prologue:
+        commands:
+          - sem-version python 3.8
